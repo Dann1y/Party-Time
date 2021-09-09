@@ -12,7 +12,11 @@ export default function index() {
   return (
     <Container>
       <Title>Let's get party tonight! 🤪🎉</Title>
-      <Content>You've been selected!</Content>
+      <Content>
+        You've been selected!
+        <br />
+        420
+      </Content>
       <Timer initialDate={initialDate} />
       <BackgroundItem imageUrl="/party-image.jpg" />
     </Container>
@@ -78,6 +82,7 @@ const Content = styled.div`
   font-family: Londrina Outline;
   text-shadow: 0 0 10px gold, 0 0 20px firebrick, 0 0 40px pink, 0 0 80px red;
   margin-bottom: 2vh;
+  text-align: center;
 
   @media (min-width: 280px) and (max-width: 450px) {
     font-size: 1rem;
