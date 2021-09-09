@@ -4,11 +4,17 @@ import Image from "next/image";
 import Timer from "../components/Timer";
 
 export default function index() {
+  const futureDate: Date = new Date(2021, 8, 9, 22, 10);
+
+  const initialDate: Date = new Date(
+    futureDate.getTime() - new Date().getTime()
+  );
+
   return (
     <Container>
       <Title>Let's get party tonight! 🤪🎉</Title>
       <Content>You've been selected!</Content>
-      <Timer />
+      <Timer initialDate={initialDate} />
       <BackgroundItem imageUrl="/party-image.jpg" />
     </Container>
   );
