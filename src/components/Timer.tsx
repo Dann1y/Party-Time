@@ -1,21 +1,27 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
-export default function Timer() {
-  const [diff, setDiff] = useState({});
+interface diffObject {
+  year: number;
+  month: number;
+  day: number;
+  hour: number;
+  minute: number;
+  second: number;
+}
+
+export default function Timer({ initialDate }: any) {
+  const [diff, setDiff] = useState<diffObject>({
+    year: initialDate.getUTCFullYear() - 1970,
+    month: initialDate.getUTCMonth(),
+    day: initialDate.getUTCDate() - 1,
+    hour: initialDate.getUTCHours(),
+    minute: initialDate.getUTCMinutes(),
+    second: initialDate.getUTCSeconds(),
+  });
   const [over, setOver] = useState(false);
 
-  interface diffObject {
-    year: number;
-    month: number;
-    day: number;
-    hour: number;
-    minute: number;
-    second: number;
-  }
-
   const futureDate: Date = new Date(2021, 8, 9, 22, 10);
-
   const getDateDiff = (date1: Date, date2: Date) => {
     const diff: Date = new Date(date2.getTime() - date1.getTime());
 
